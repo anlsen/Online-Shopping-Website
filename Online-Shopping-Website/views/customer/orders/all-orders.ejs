@@ -1,0 +1,31 @@
+<%- include("../../shared/includes/head",{pageTitle:"All orders"}) %>
+<link rel="stylesheet" href="/styles/order.css">
+</head>
+
+    <body>
+
+        <%- include("../../shared/includes/header") %>
+
+        <main>
+            
+            
+            <% if(!orders || orders.length===0) {%>
+                <h1>You do not have any orders yet.</h1>
+                <a href="/" class="btn btn-alt">Visit our shop</a>                
+            <% }else{ %>
+                <h1>Your Orders</h1>
+                <ul id="order-list">
+                    <% for (const order of orders){ %>
+                    <li>
+                        <%- include("../../shared/includes/order-item",{order:order}) %>
+                    </li>
+                    <% } %>
+                </ul>
+
+            <% } %>
+
+        </main>
+
+    </body>
+
+</html>

@@ -1,0 +1,31 @@
+<%- include("../../shared/includes/head",{pageTitle:"All orders"}) %>
+<link rel="stylesheet" href="/styles/order.css">
+<script src="/scripts/admin-cart-status.js" defer></script>
+</head>
+
+    <body>
+
+        <%- include("../../shared/includes/header") %>
+
+        <main>
+            
+            
+            <% if(!orders || orders.length===0) {%>
+                <h1>No orders have been made so far.</h1>               
+            <% }else{ %>
+                <h1>All Orders</h1>
+                <ul id="order-list">
+                    <% for (const order of orders){ %>
+                    <li>
+                        <%- include("../../shared/includes/order-item",{order:order}) %>
+                    </li>
+                    <% } %>
+                </ul>
+
+            <% } %>
+
+        </main>
+
+    </body>
+
+</html>
